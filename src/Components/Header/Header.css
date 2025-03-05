@@ -1,0 +1,43 @@
+header{
+  max-width: 1920px;
+  height: 140.5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  background-color: rgba(255, 255, 255, 1);
+  background-color: red;
+  transition: opacity 0.5s, transform 0.5s;
+  &.hide{
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+  .Heading{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+    .Search_field{
+      position: fixed;
+      left: 85%;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      img{
+        cursor: pointer;
+      }
+      input{
+        max-width: 150px;
+        padding-left: 0.5rem;
+      }
+    }
+  }
+  hr{
+    width: 100%;
+    top: 81.5px;
+    border: 1px solid rgba(233, 233, 233, 1)
+  }
+}
