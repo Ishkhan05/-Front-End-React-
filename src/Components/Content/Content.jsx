@@ -1,26 +1,20 @@
-import React, { useEffect, useState } from 'react'
-import axios from "axios"
+import React, { useContext } from 'react'
+import MyContext from '../../Context/context'
 import "./Content.css"
 
 export default function Content() {
-  const [posts, setPosts] = useState()
-  const [postInfoModal, setPostInfoModal] = useState(false)
-  const [currentPost, setCurrentPost] = useState()
-  useEffect(() => {
-    axios("https://cloud.codesupply.co/endpoint/react/data.json")
-    .then(res=>setPosts(res.data))
-  }, [])
+  const value = useContext(MyContext)
   const postInfo = (title)=>{
-    setPostInfoModal(!postInfoModal)
-    setCurrentPost(posts.find((elem)=>elem.title == title))
+    value.setPostInfoModal(!value.postInfoModal)
+    value.setCurrentPost(value.posts.find((elem)=>elem.title == title))
   }
   const modalClose = (e) =>{
-    e.target.className=="modal" ? setPostInfoModal(false): null 
+    e.target.className=="modal" ? value.setPostInfoModal(false): null 
   }
   return (
     <div className='Content'>
       {
-        posts?.map(post=>{
+        value.posts?.map(post=>{
           return(
             <div key={post?.title} className='post' onClick={()=>postInfo(post.title)}>
               <picture>
@@ -40,25 +34,26 @@ export default function Content() {
           )
         })
       }
-      {postInfoModal? (
+      {value.postInfoModal? (
         <div className='modal' onClick={modalClose}>
           <div className='postInfo'>
             <picture>
-              <source media="(min-width:1080px)" srcSet={currentPost.img_2x} />
-              <source media="(min-width:465px)" srcSet={currentPost.img} />
-              <img src={currentPost.img_2x} alt={currentPost.name} style={{ width: "auto" }} />
+              <source media="(min-width:1080px)" srcSet={value.currentPost.img_2x} />
+              <source media="(min-width:465px)" srcSet={value.currentPost.img} />
+              <img src={value.currentPost.img_2x} alt={value.currentPost.name} style={{ width: "auto" }} />
             </picture>
-            <p>{currentPost.tags}</p>
-            <h2>{currentPost.title}</h2>
+            <p>{value.currentPost.tags}</p>
+            <h2>{value.currentPost.title}</h2>
             <div>
-              <p>{currentPost.autor}</p>
-              <p>{currentPost.date}</p>
-              <p>{currentPost.views}</p>
+              <p>{value.currentPost.autor}</p>
+              <p>{value.currentPost.date}</p>
+              <p>{value.currentPost.views}</p>
             </div>
-            <p>{currentPost.text}</p>
+            <p>{value.currentPost.text}</p>
           </div>
         </div>) 
-        :null}
+        :null
+      }
     </div>
   )
 }

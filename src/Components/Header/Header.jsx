@@ -1,34 +1,27 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import Navigation from '../Navigation/Navigation'
 import "./Header.css"
+import SearchPosts from '../SearchPosts/SearchPosts'
+import MyContext from '../../Context/context'
 
 export default function Header(){
-  const [isSearch,setIsSearch] = useState(false)
+  const value = useContext(MyContext)
   const [hidden, setHidden] = useState(false)
-  const [text, setText] = useState()
-  const searching=()=>{
-    setIsSearch(!isSearch)
-  }
-  const searchText = (e)=>{
-    e.preventDefault()
-    const { value } = e.target.search;
-    setText(value)
-    e.target.reset()
-  }
   useEffect(() => {
     const handleScroll = () => {
       setHidden(window.scrollY > 200);
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [])
   return (
     <header className={hidden ? "hide" : ""}>
       <div className='Heading'>
         <img src="Logo.png" alt="logo"/>
         <div className='Search_field'>
-          <img src="Search_icon.png" alt="search" onClick={()=>searching()}/>
-          {isSearch ? <form onSubmit={searchText}><input type="search" name="search" id="search"/></form> : null}
+          <img src="Search_icon.png" alt="search" onClick={()=>value.searching()}/>
+          {value.isSearch ? <form onSubmit={value.searchText}><input type="search" name="search" id="search"/></form> : null}
+          <SearchPosts/>
         </div>
       </div>
       <Navigation/>
