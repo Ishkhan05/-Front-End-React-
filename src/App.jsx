@@ -9,7 +9,8 @@ function App() {
   const [posts, setPosts] = useState()
   const [postInfoModal, setPostInfoModal] = useState(false)
   const [currentPost, setCurrentPost] = useState()
-  const [isSearch,setIsSearch] = useState(false)
+  const [isSearch, setIsSearch] = useState(false)
+  const [startSearching, setStartSearching] = useState(false)
   const [text, setText] = useState()
   const searching=()=>{
     setIsSearch(!isSearch)
@@ -17,6 +18,7 @@ function App() {
   const searchText = (e)=>{
     e.preventDefault()
     const { value } = e.target.search;
+    setStartSearching(true)
     setText(value)
   }
   useEffect(() => {
@@ -25,7 +27,7 @@ function App() {
   }, [])
   return (
     <div className='App'>
-      <MyContext.Provider value={{posts,postInfoModal,setPostInfoModal,currentPost,setCurrentPost,isSearch,setIsSearch,text,setText,searching,searchText}}>
+      <MyContext.Provider value={{posts,postInfoModal,setPostInfoModal,currentPost,setCurrentPost,isSearch,setIsSearch,text,setText,searching,searchText,startSearching,setStartSearching}}>
         <Header/>
         <Content/>
       </MyContext.Provider>

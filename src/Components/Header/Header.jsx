@@ -20,8 +20,8 @@ export default function Header(){
         <img src="Logo.png" alt="logo"/>
         <div className='Search_field'>
           <img src="Search_icon.png" alt="search" onClick={()=>value.searching()}/>
-          {value.isSearch ? <form onSubmit={value.searchText}><input type="search" name="search" id="search"/></form> : null}
-          <SearchPosts/>
+          {value.isSearch ? <form onSubmit={value.searchText}><input type="search" name="search" id="search"/></form> :null}
+          {value.startSearching ? <SearchPosts/> :null}
         </div>
       </div>
       <Navigation/>

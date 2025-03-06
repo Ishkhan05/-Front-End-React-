@@ -15,6 +15,36 @@
       height: auto;
       object-fit: contain;
     }
+    .postHeading{
+      h5{
+        color: rgba(235, 0, 40, 1);
+        font-size: 13px;
+        margin: 0.5rem auto;
+      }
+    }
+    .postInfo{
+      display: flex;
+      align-items: center;
+      color: rgba(155, 155, 155, 1);
+      margin: 0.5rem auto;
+      font-size: 12px;
+      .postAutor{
+        color: rgba(0, 0, 0, 1);
+        font-weight: 500;
+      }
+      span{
+        width: 3px;
+        height: 3px;
+        border-radius: 50%;
+        background-color: rgba(215, 215, 215, 1);
+        margin: 0.3rem;
+      }
+    }
+    .postDescription{
+      color: rgba(146, 146, 146, 1);
+      font-size: 14px;
+      line-height: 20px;
+    }
   }
   .modal{
     position: fixed;
@@ -27,7 +57,7 @@
     align-items: center;
     z-index: 9999;
     padding: 0;
-    .postInfo{
+    .modalPost{
       height: 600px;
       width: 500px;
       background-color: #eee;
@@ -37,6 +67,36 @@
         max-width: 470px;
         height: auto;
         object-fit: contain;
+      }
+      .modalPostHeading{
+        h4{
+          color: rgba(235, 0, 40, 1);
+          margin: 0.5rem auto;
+        }
+        h1{
+          line-height: 2.5rem;
+        }
+      }
+      .modalPostInfo{
+        display: flex;
+        align-items: center;
+        color: rgba(155, 155, 155, 1);
+        margin: 0.5rem auto;
+        font-size: 14px;
+        .modalPostAutor{
+          color: rgba(0, 0, 0, 1);
+          font-weight: 500;
+        }
+        span{
+          width: 5px;
+          height: 5px;
+          border-radius: 50%;
+          background-color: rgba(215, 215, 215, 1);
+          margin: 0.4rem;
+        }
+      }
+      .modalPostDescription{
+        color: rgba(146, 146, 146, 1);
       }
     }
   }

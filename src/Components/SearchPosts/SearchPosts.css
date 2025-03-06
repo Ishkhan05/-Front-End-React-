@@ -1,6 +1,6 @@
 .SearchPosts{
   height: auto;
-  width: 200px;
+  width: 220px;
   background-color: #eee;
   position: fixed;
   top: 50px;
@@ -15,9 +15,11 @@
     .rightSide{
       img{
         height: 50px;
+        margin-top: 0.3rem;
       }
       p{
         font-size: 12px;
+        color: rgba(235, 0, 40, 1);
       }
     }
   }
