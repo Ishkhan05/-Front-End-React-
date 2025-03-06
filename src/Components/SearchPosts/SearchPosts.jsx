@@ -12,6 +12,8 @@ export default function SearchPosts() {
   const postInfo = (title)=>{
     value.setPostInfoModal(!value.postInfoModal)
     value.setCurrentPost(value.posts.find((elem)=>elem.title == title))
+    value.setStartSearching(false)
+    value.setIsSearch(false)
   }
   return (
     <div className='SearchPosts'>
