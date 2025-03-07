@@ -28,9 +28,14 @@ header{
       img{
         cursor: pointer;
       }
-      input{
-        max-width: 150px;
-        padding-left: 0.5rem;
+      form{
+        padding: 0;
+        input{
+          margin: 0;
+          max-width: 150px;
+          height: 25px;
+          padding-left: 0.5rem;
+        }
       }
     }
   }

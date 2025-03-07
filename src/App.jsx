@@ -14,6 +14,7 @@ function App() {
   const [text, setText] = useState()
   const searching=()=>{
     setIsSearch(!isSearch)
+    setStartSearching(false)
   }
   const searchText = (e)=>{
     e.preventDefault()
