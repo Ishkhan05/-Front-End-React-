@@ -4,7 +4,7 @@ nav{
   border-bottom: 1px solid rgba(233, 233, 233, 1);
   border-top: 1px solid rgba(233, 233, 233, 1);
   ul#menu{
-    width: 554px;
+    max-width: 554px;
     height: 100%;
     margin-inline: auto;
     list-style: none;
@@ -16,7 +16,7 @@ nav{
       align-items: center;
       cursor: pointer;
       p>i{
-        font-size: 10px;
+        font-size: 0.6rem;
       }
     }
     #subMenu{
@@ -41,7 +41,7 @@ nav{
           border-bottom: 1px solid rgba(233, 233, 233, 1);
           display: flex;
           justify-content: space-between;
-          font-size: 13px;
+          font-size: 0.8rem;
           padding-bottom: 0.3rem;
           cursor: pointer;
           &:last-child {
@@ -50,7 +50,7 @@ nav{
           &:hover{
             a{
               color: rgba(150, 150, 150, 1);
-              padding-left: 1em;
+              padding-left: 1rem;
             }
           }
           a{
@@ -60,9 +60,11 @@ nav{
         }
       }
     }
-    li:hover  #subMenu{
-      display: block;
-    }
+    li:hover{
+      #subMenu{
+        display: block;
+      }
+    }  
     
   }
 }
