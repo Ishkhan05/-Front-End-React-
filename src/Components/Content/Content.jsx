@@ -9,7 +9,7 @@ export default function Content() {
     value.setCurrentPost(value.posts.find((elem)=>elem.title == title))
   }
   const modalClose = (e) =>{
-    e.target.className=="modal" ? value.setPostInfoModal(false): null 
+    e.target.className=="modal" ? value.setPostInfoModal(false) : "" 
   }
   return (
     <div className='Content'>
@@ -20,7 +20,7 @@ export default function Content() {
               <picture>
                 <source media="(min-width:1080px)" srcSet={post.img_2x} />
                 <source media="(min-width:465px)" srcSet={post.img} />
-                <img src={post.img_2x} alt={post.name} style={{width: "auto"}} />
+                <img src={post.img_2x} alt={post.name}/>
               </picture>
               <div className='postHeading'>
                 <h5>{post.tags}</h5>
@@ -44,7 +44,7 @@ export default function Content() {
             <picture>
               <source media="(min-width:1080px)" srcSet={value.currentPost.img_2x} />
               <source media="(min-width:465px)" srcSet={value.currentPost.img} />
-              <img src={value.currentPost.img_2x} alt={value.currentPost.name} style={{ width: "auto" }} />
+              <img src={value.currentPost.img_2x} alt={value.currentPost.name} />
             </picture>
             <div className='modalPostHeading'>
               <h4>{value.currentPost.tags}</h4>

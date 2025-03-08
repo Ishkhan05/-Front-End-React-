@@ -24,3 +24,13 @@
     }
   }
 }
+@media (max-width: 900px){
+  .SearchPosts{
+    top: 65px;
+  }
+}
+@media (max-width: 375px){
+  .SearchPosts{
+    top: 75px;
+  }
+}

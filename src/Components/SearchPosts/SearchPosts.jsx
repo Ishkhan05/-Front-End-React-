@@ -5,9 +5,13 @@ import "./SearchPosts.css"
 export default function SearchPosts() {
   const value = useContext(MyContext)
   const searchedPosts = value.posts?.filter((elem)=>{
-    return (elem.autor?.toLowerCase().includes(value.text) ||
-    elem.title?.toLowerCase().includes(value.text) ||
-    elem.tags?.toLowerCase().includes(value.text))
+    const text = value.text.toLowerCase()
+    const autor = elem.autor ? elem.autor.toLowerCase() : "" 
+    const title = elem.title ? elem.title.toLowerCase() : "" 
+    const tags = elem.tags ? elem.tags.toLowerCase() : "" 
+    return (
+      autor.concat(title, tags).includes(text)
+    )
   })
   const postInfo = (title)=>{
     value.setPostInfoModal(!value.postInfoModal)

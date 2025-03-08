@@ -74,7 +74,7 @@
           margin: 0.5rem auto;
         }
         h1{
-          line-height: 2.5rem;
+          line-height: 2rem;
         }
       }
       .modalPostInfo{
@@ -97,6 +97,39 @@
       }
       .modalPostDescription{
         color: rgba(146, 146, 146, 1);
+      }
+    }
+  }
+}
+@media (max-width: 900px){
+  .Content{
+    .post{
+      flex-basis: 45%;
+    }
+  }
+}
+@media (max-width:576px){
+  .Content{
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+    .post{
+      margin-top: 1rem;
+      flex-basis: 100%;
+      img{
+        max-width: 100%;
+      }
+    }
+    .modalPost{
+      max-width: 80vw;
+      max-height: 80%;
+      img{
+        max-width: 100%;
+      }
+      .modalPostHeading{
+        h1{
+          line-height: 1rem;
+          font-size: 1.5rem;
+        }
       }
     }
   }

@@ -1,52 +1,44 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import MyContext from '../../Context/context'
 import "./Navigation.css"
 
 export default function Navigation() {
+  const value = useContext(MyContext)
   return (
     <nav>
       <ul id='menu'>
-        <li>
-          <p>Demos <i className="bi bi-chevron-down"></i></p>
-        </li>
-        <li>
-          <p>Post <i className="bi bi-chevron-down"></i></p>
-          <div id="subMenu">
-            <ul>
-              <li>
-                <a href='#'>Post Header</a>
-                <i className="bi bi-chevron-right"></i>
+        {
+          value.menu?.map((elem,index)=>{
+            return(
+              <li key={index}>
+                <p>{elem}</p>
+                {
+                  elem !== "Buy Now" ?
+                  <i className="bi bi-chevron-down"></i>
+                  :null
+                }
+                {
+                  elem == "Post" ? 
+                  <div id="subMenu">
+                    <ul>
+                      {
+                        value.subMenu?.map((elem,index)=>{
+                          return(
+                            <li key={index}>
+                              <a href='#'>{elem}</a>
+                              <i className="bi bi-chevron-right"></i>
+                            </li>
+                          )
+                        })
+                      }
+                    </ul>
+                  </div>
+                  :null
+                }
               </li>
-              <li>
-                <a href='#'>Post Layout</a>
-                <i className="bi bi-chevron-right"></i>
-              </li>
-              <li>
-                <a href='#'>Share Buttons</a>
-                <i className="bi bi-chevron-right"></i>
-              </li>
-              <li>
-                <a href='#'>Gallery Post</a>
-                <i className="bi bi-chevron-right"></i>
-              </li>
-              <li>
-                <a href='#'>Video Post</a>
-                <i className="bi bi-chevron-right"></i>
-              </li>
-            </ul>
-          </div> 
-        </li>
-        <li>
-          <p>Features <i className="bi bi-chevron-down"></i></p>
-        </li>
-        <li>
-          <p>Categories <i className="bi bi-chevron-down"></i></p>
-        </li>
-        <li>
-          <p>Shop <i className="bi bi-chevron-down"></i></p>
-        </li>
-        <li>
-          <p>Buy Now</p>
-        </li>
+            )
+          })
+        }
       </ul>
     </nav>
   )
