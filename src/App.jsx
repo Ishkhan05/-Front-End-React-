@@ -38,7 +38,7 @@ function App() {
     }
   }, [startSearching])
   useEffect(() => {
-    axios(import.meta.env.VITE_DB_URL).then((res)=>setPosts(res.data))
+    axios("https://cloud.codesupply.co/endpoint/react/data.json").then((res)=>setPosts(res.data))
   }, [])
   return (
     <div className='App'>

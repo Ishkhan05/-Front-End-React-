@@ -3,7 +3,7 @@
   width: 220px;
   background-color: #eee;
   position: fixed;
-  top: 50px;
+  top: 61px;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   cursor: pointer;
   .searchPost{
@@ -26,7 +26,7 @@
 }
 @media (max-width: 900px){
   .SearchPosts{
-    top: 65px;
+    top: 78px;
   }
 }
 @media (max-width: 375px){
